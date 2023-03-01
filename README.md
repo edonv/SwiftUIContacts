@@ -1,3 +1,3 @@
-# SwiftUIContactsUI
+# SwiftUIContacts
 
-A description of this package.
+`SwiftUI` wrapper of [CNContactPickerViewController](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller).
