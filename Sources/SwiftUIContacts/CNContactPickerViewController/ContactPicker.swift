@@ -201,7 +201,12 @@ struct ContactPicker_Previews: PreviewProvider {
                 }
             }
             .sheet(isPresented: $showSheet) {
-                ContactPicker(selection: $selectedProperty)
+                ContactPicker(selection: $selectedProperty,
+                              displayedPropertyKeys: [.phoneNumbersKey]
+                )
+                .filterSelectableProperties(with:
+                    NSPredicate(format: "(key == 'phoneNumber')")
+                )
             }
         }
     }
