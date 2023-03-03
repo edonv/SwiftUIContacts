@@ -19,6 +19,10 @@ public struct ContactPicker: View {
     @Binding public var selectedProperties: [CNContactProperty]
     public var displayedPropertyKeys: [ContactsConstant]?
     
+    private var predicateForEnablingContact: NSPredicate? = nil
+    private var predicateForSelectionOfContact: NSPredicate? = nil
+    private var predicateForSelectionOfProperty: NSPredicate? = nil
+    
     /// Creates a ``ContactPicker`` `View` in ``ContactPicker/SelectMode-swift.enum/multipleContacts`` select mode.
     /// - Parameters:
     ///   - selectedContacts: A binding to a property that reflects the selected contacts.
@@ -80,6 +84,18 @@ public struct ContactPicker: View {
         
         self.displayedPropertyKeys = displayedPropertyKeys
     }
+    
+    internal mutating func setPredicateForEnablingContact(_ predicate: NSPredicate) {
+        self.predicateForEnablingContact = predicate
+    }
+    
+    internal mutating func setPredicateForSelectionOfContact(_ predicate: NSPredicate) {
+        self.predicateForSelectionOfContact = predicate
+    }
+    
+    internal mutating func setPredicateForSelectionOfProperty(_ predicate: NSPredicate) {
+        self.predicateForSelectionOfProperty = predicate
+    }
 }
 
 extension ContactPicker: UIViewControllerRepresentable {
@@ -87,6 +103,12 @@ extension ContactPicker: UIViewControllerRepresentable {
         let picker = CNContactPickerViewController()
         picker.delegate = context.coordinator
         picker.displayedPropertyKeys = self.displayedPropertyKeys?.map(\.rawValue)
+        
+        // MARK: Adding Predicates
+        picker.predicateForEnablingContact = self.predicateForEnablingContact
+        picker.predicateForSelectionOfContact = self.predicateForSelectionOfContact
+        picker.predicateForSelectionOfProperty = self.predicateForSelectionOfProperty
+        
         return picker
     }
     
