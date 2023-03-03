@@ -117,7 +117,7 @@ extension ContactPicker {
     }
     
     /// A basic coordinator delegate for ``ContactPicker``. Used as a base type for variations with each delegate function.
-    /// Includes property for the parent `View`, a shared initializer, and the [contactPickerDidCancel(_:)](https://developer.apple.com/documentation/contactsui/cncontactpickerdelegate/1619204-contactpickerdidcancel).
+    /// Includes property for the parent `View`, a shared initializer, and an implementation of [contactPickerDidCancel(_:)](https://developer.apple.com/documentation/contactsui/cncontactpickerdelegate/1619204-contactpickerdidcancel).
     public class PickerCoordinator: NSObject, CNContactPickerDelegate {
         internal var parent: ContactPicker
         
