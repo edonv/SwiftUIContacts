@@ -5,9 +5,9 @@
 
 `SwiftUI` wrapper of [ContactsUI](https://developer.apple.com/documentation/contactsui)'s  [CNContactPickerViewController](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller). Eventually, I'll add the rest of the framework. 
 
-## `ContactPicker`
+## ContactPicker
 
-The `ContactPicker` supports four different selection modes and the mode is decided by which `init` you use:
+`ContactPicker` supports four different selection modes and the mode is decided by which `init` you use:
 - A single contact 
   - Use a `@Binding` of type `CNContact?` in the `init`
 - Multiple contacts 
