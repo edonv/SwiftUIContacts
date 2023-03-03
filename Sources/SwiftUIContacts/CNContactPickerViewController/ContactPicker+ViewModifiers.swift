@@ -37,6 +37,8 @@ extension View where Self == ContactPicker {
     ///
     /// To learn about predicate syntax, see [NSPredicate](https://developer.apple.com/documentation/foundation/nspredicate).
     public func filterSelectableProperties(with predicate: NSPredicate) -> ContactPicker {
+        guard Self.Coordinator.self != ContactPicker.MultiplePropertiesSelectCoordinator.self else { return self }
+        
         var newView = self
         newView.setPredicateForSelectionOfProperty(predicate)
         return newView
