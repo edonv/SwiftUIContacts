@@ -54,10 +54,12 @@ public struct ContactPicker: View {
     }
     
     /// Creates a ``ContactPicker`` `View` in ``ContactPicker/SelectMode-swift.enum/multipleProperties`` select mode.
+    ///
+    /// > Warning: This version of ``ContactPicker`` is volatile and hasn't been subject to siginificant testing as of yet. It seems that the underlying `CNContactPickerViewController` has the same issues when being used in this mode.
     /// - Parameters:
     ///   - selectedProperties: A binding to a property that reflects the selected contact properties.
-    ///   - displayedPropertyKeys: The [CNContact](https://developer.apple.com/documentation/contacts/cncontact) property keys to display in the contact detail card. All the properties of the contact are displayed if this property is not set
-    public init(selection selectedProperties: Binding<[CNContactProperty]>, displayedPropertyKeys: [ContactsConstant]? = nil) {
+    ///   - propertyKey: A `CNContact` property key that will be selected for all chosen contacts.
+    public init(selection selectedProperties: Binding<[CNContactProperty]>, propertyKey: String) {
         self.selectMode = .multipleProperties
         
         self._selectedProperties = selectedProperties
@@ -66,7 +68,21 @@ public struct ContactPicker: View {
         self._selectedContacts = .constant([])
         self._selectedProperty = .constant(nil)
         
-        self.displayedPropertyKeys = displayedPropertyKeys
+        self.displayedPropertyKeys = nil
+        
+        self.setPredicateForSelectionOfProperty(
+            NSPredicate(format: "(key == '\(propertyKey)')")
+        )
+    }
+    
+    /// Creates a ``ContactPicker`` `View` in ``ContactPicker/SelectMode-swift.enum/multipleProperties`` select mode.
+    ///
+    /// > Warning: This version of ``ContactPicker`` is volatile and hasn't been subject to siginificant testing as of yet. It seems that the underlying `CNContactPickerViewController` has the same issues when being used in this mode.
+    /// - Parameters:
+    ///   - selectedProperties: A binding to a property that reflects the selected contact properties.
+    ///   - propertyKey: A ``ContactsConstant`` that will be selected for all chosen contacts.
+    public init(selection selectedProperties: Binding<[CNContactProperty]>, propertyKey: ContactsConstant) {
+        self.init(selection: selectedProperties, propertyKey: propertyKey.rawValue)
     }
     
     /// Creates a ``ContactPicker`` `View` in ``ContactPicker/SelectMode-swift.enum/singleProperty`` select mode.
