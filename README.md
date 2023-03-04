@@ -5,6 +5,10 @@
 
 `SwiftUI` wrapper of [ContactsUI](https://developer.apple.com/documentation/contactsui)'s  [CNContactPickerViewController](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller). Eventually, I'll add the rest of the framework. 
 
+## Documentation
+
+Documentation for `SwiftUIContacts` is hosted on [Swift Package Index](https://swiftpackageindex.com/edonv/SwiftUIContacts/documentation/swiftuicontacts).
+
 ## ContactPicker
 
 `ContactPicker` supports four different selection modes and the mode is decided by which `init` you use:
