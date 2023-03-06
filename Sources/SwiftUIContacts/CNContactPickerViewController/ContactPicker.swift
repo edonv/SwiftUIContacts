@@ -115,7 +115,7 @@ public struct ContactPicker: View {
 }
 
 extension ContactPicker: UIViewControllerRepresentable {
-    public func makeUIViewController(context: Context) -> CNContactPickerViewController {
+    public func makeUIViewController(context: Context) -> UINavigationController {
         let picker = CNContactPickerViewController()
         picker.delegate = context.coordinator
         picker.displayedPropertyKeys = self.displayedPropertyKeys?.map(\.rawValue)
@@ -125,10 +125,10 @@ extension ContactPicker: UIViewControllerRepresentable {
         picker.predicateForSelectionOfContact = self.predicateForSelectionOfContact
         picker.predicateForSelectionOfProperty = self.predicateForSelectionOfProperty
         
-        return picker
+        return UINavigationController(rootViewController: picker)
     }
     
-    public func updateUIViewController(_ uiViewController: CNContactPickerViewController, context: Context) {
+    public func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
         
     }
     
