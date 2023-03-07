@@ -5,6 +5,9 @@
 
 `SwiftUI` wrapper of [ContactsUI](https://developer.apple.com/documentation/contactsui)'s  [CNContactPickerViewController](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller). Eventually, I'll add the rest of the framework. 
 
+## To-Do's
+- [ ] Port over macOS-exclusive ViewControllers (`CNContactViewController`'s usage on macOS, and `CNContactPicker`).
+
 ## Documentation
 
 Documentation for `SwiftUIContacts` is hosted on [Swift Package Index](https://swiftpackageindex.com/edonv/SwiftUIContacts/documentation/swiftuicontacts).
