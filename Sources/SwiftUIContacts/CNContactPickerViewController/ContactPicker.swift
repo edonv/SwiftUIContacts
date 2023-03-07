@@ -5,11 +5,14 @@
 //  Created by Edon Valdman on 3/1/23.
 //
 
+#if os(iOS) || targetEnvironment(macCatalyst)
+
 import SwiftUI
 import ContactsUI
 import Contacts
 
 /// A `SwiftUI` wrapper for [CNContactPickerViewController](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller).
+@available(iOS 13.0, macCatalyst 13.1, *)
 public struct ContactPicker: View {
     public let selectMode: SelectMode
     
@@ -227,3 +230,5 @@ struct ContactPicker_Previews: PreviewProvider {
         }
     }
 }
+
+#endif

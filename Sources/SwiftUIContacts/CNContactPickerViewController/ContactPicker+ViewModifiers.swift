@@ -5,9 +5,12 @@
 //  Created by Edon Valdman on 3/3/23.
 //
 
+#if os(iOS) || targetEnvironment(macCatalyst)
+
 import SwiftUI
 import Contacts
 
+@available(iOS 13, macCatalyst 13.1, *)
 extension View where Self == ContactPicker {
     /// Adds a predicate to determine the contact selectability in the list of contacts.
     ///
@@ -46,3 +49,5 @@ extension View where Self == ContactPicker {
         return newView
     }
 }
+
+#endif
