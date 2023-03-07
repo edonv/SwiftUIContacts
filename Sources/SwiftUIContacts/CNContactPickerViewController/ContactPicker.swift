@@ -11,6 +11,12 @@ import SwiftUI
 import ContactsUI
 import Contacts
 
+/// A view that displays an interface for picking contacts.
+///
+/// A `ContactPicker` allows the user to select one or more contacts (or their properties) from the list of contacts displayed in the contact view controller ([CNContactViewController](https://developer.apple.com/documentation/contactsui/cncontactviewcontroller)). The picker supports both single selection and multiselection of the contacts. The app using `ContactPicker` does not need access to the user’s contacts and the user will not be prompted for “grant permission” access. The app has access only to the user’s final selection.
+///
+/// There are predefined predicates in this view that let you control the user selection of the contact. Changing the predicates only take effect before the view is presented.
+///
 /// A `SwiftUI` wrapper for [CNContactPickerViewController](https://developer.apple.com/documentation/contactsui/cncontactpickerviewcontroller).
 @available(iOS 13.0, macCatalyst 13.1, *)
 public struct ContactPicker: View {
