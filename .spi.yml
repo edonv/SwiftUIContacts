@@ -1,5 +1,4 @@
 version: 1
 builder:
   configs:
-    - platform: ios
-      documentation_targets: [SwiftUIContacts]
+    - documentation_targets: [SwiftUIContacts]
