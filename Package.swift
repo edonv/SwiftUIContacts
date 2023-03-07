@@ -7,7 +7,8 @@ let package = Package(
     name: "SwiftUIContacts",
     platforms: [
         .iOS(.v13),
-        .macCatalyst(.v13)
+        .macCatalyst(.v13),
+        .macOS(.v10_15)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
